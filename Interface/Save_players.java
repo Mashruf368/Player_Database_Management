@@ -34,7 +34,7 @@ public class Save_players {
     try{
         //BufferedReader me = new BufferedReader(new FileReader("players.txt"));
         BufferedReader me = new BufferedReader(new InputStreamReader(
-        Main.class.getResourceAsStream("players.txt")
+        Main.class.getResourceAsStream("../players.txt")
         )   );
         String s;
         

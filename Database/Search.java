@@ -13,7 +13,7 @@ public class Search {
     {
         for(int i=0;i<real.size();i++)
         {
-            if(real.get(i).name.equals(a)) 
+            if(real.get(i).name.equalsIgnoreCase(a)) 
             {
                 real.get(i).printplayer();
                 return real.get(i);
@@ -29,7 +29,7 @@ public class Search {
         Vector <Player> v = new Vector<>();
         for(int i=0;i<real.size();i++)
         {
-            if(real.get(i).country.equals(a)) 
+            if(real.get(i).country.equalsIgnoreCase(a)) 
             {
                 v.add(real.get(i));
             }
@@ -43,7 +43,7 @@ public class Search {
         Vector <Player> v = new Vector<>();
         for(int i=0;i<real.size();i++)
         {
-            if(real.get(i).club.equals(a)) 
+            if(real.get(i).club.equalsIgnoreCase(a)) 
             {
                 v.add(real.get(i));
             }
@@ -57,7 +57,7 @@ public class Search {
         Vector <Player> v = new Vector<>();
         for(int i=0;i<real.size();i++)
         {
-            if(real.get(i).position.equals(a)) 
+            if(real.get(i).position.equalsIgnoreCase(a)) 
             {
 
                 v.add(real.get(i));

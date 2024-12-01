@@ -163,7 +163,7 @@ public class PlayerList
     {
         for(int i=0;i<playerList.size();i++)
         {
-            if(playerList.get(i).name.equals(a)) return false;
+            if(playerList.get(i).name.equalsIgnoreCase(a)) return false;
         }
         return true;
     }
