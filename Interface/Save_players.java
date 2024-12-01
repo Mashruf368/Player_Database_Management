@@ -56,46 +56,61 @@ public class Save_players {
                         {
                             case 0:
                                 {
-                                    temp.name = s.substring(j, i);
+                                    String r = s.substring(j, i);
+                                    temp.setName(r); 
                                     break;
                                 }
                             case 1:
                                 {
-                                    temp.country = s.substring(j, i);
+                                    String r = s.substring(j, i);
+                                    temp.setCountry(r); ;
                                     break;
                                 }
                             case 2:
                                 {
-                                    temp.age = Integer.parseInt(s.substring(j, i));
+                                    int r = Integer.parseInt(s.substring(j, i));
+                                    temp.setAge(r); 
                                     break;
                                 }
                             case 3:
                                 {
-                                    temp.height = Double.parseDouble(s.substring(j,i));
+                                    double r =Double.parseDouble(s.substring(j,i));
+                                    temp.setHeight(r); 
                                     break;
                                 }
                             case 4:
                                 {
-                                    temp.club = s.substring(j,i);
+                                    String r = s.substring(j,i);
+                                    temp.setClub(r); 
                                     break;
                                 }
                             case 5:
                                 {
-                                    temp.position = s.substring(j,i);
+                                    String r =s.substring(j,i);
+                                    temp.setPosition(r);
                                     break;
                                 }
                             case 6:
                                 {
-                                    if((s.charAt(j)==',')) temp.jersey_no=0;
-                                    else
-                                    temp.jersey_no = Integer.parseInt(s.substring(j,i));
-                                    break;
+                                    try{
+                                        int r = Integer.parseInt(s.substring(j, i));
+                                        temp.setJersey_no(r) ;
+                                        break;
+                                    }catch (NumberFormatException e){
+                                        //System.out.println("error in " + temp.getName());
+                                        temp.setJersey_no(0);
+                                    }
                                 }
 
                             default:
                                 {
-                                    temp.salary = Integer.parseInt(s.substring(j, i));
-                                    break;
+                                    try{
+                                        int r = Integer.parseInt(s.substring(j, i));
+                                        temp.setSalary(r); 
+                                        break;
+                                    }catch (NumberFormatException e){
+                                        //System.out.println("error in " + temp.getName());
+                                    }
                                 }
                         }
                         j=i+1;
@@ -106,7 +121,7 @@ public class Save_players {
                 //System.out.println(temp.name + " " + temp.country + " " + temp.age + " " + temp.club + " " + temp.height + " " + temp.salary + " " + temp.jersey_no + " " + temp.position);
                 //temp.printplayer();
                 initial.add(temp);
-                player_names.add(temp.name);
+                player_names.add(temp.getName());
                 //player_number++;
                 //System.out.println("no of players is " + player_number);
             }
@@ -129,23 +144,23 @@ public class Save_players {
                     int j=0;
                     int present=0;
                     for(j=0;j<initial.size();j++){
-                        if(real.get(i).name.equals(initial.get(j).name)){present=1;}
+                        if(real.get(i).getName().equals(initial.get(j).getName())){present=1;}
                     }
                     if(present==0)
                     {
                             //real.get(i).printplayer();
                             writer.write("\n");
-                            writer.write(real.get(i).name + ",");
-                            writer.write(real.get(i).country + ",");
-                            writer.write(real.get(i).age + ",");
-                            writer.write(real.get(i).height + ",");
-                            writer.write(real.get(i).club + ",");
-                            writer.write(real.get(i).position + ",");
-                            if(real.get(i).jersey_no !=0)
-                            writer.write(real.get(i).jersey_no + ",");
+                            writer.write(real.get(i).getName() + ",");
+                            writer.write(real.get(i).getCountry()+ ",");
+                            writer.write(real.get(i).getAge() + ",");
+                            writer.write(real.get(i).getHeight() + ",");
+                            writer.write(real.get(i).getClub() + ",");
+                            writer.write(real.get(i).getPosition() + ",");
+                            if(real.get(i).getJersey_no() !=0)
+                            writer.write(real.get(i).getJersey_no() + ",");
                             else 
                             writer.write(",");
-                            writer.write(real.get(i).salary +"");
+                            writer.write(real.get(i).getSalary() +"");
                     }
                     
                 

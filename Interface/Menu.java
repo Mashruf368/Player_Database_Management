@@ -49,6 +49,7 @@ public class Menu {
                         {
                             String s=t.nextLine();
                             Player a=finder.by_name(s);
+                            a.printplayer();
                             break;
 
                         }
@@ -56,16 +57,21 @@ public class Menu {
                         {
                             System.out.println("Input a country");
                             String s=t.nextLine();
+                            Vector <Player> first = finder.by_country(s);
                             System.out.println("Input a club");
                             String p = t.nextLine();
-                            if(p.equals("ANY")) finder.by_country(s);
-                            else finder.by_club(p);
+                            if(p.equalsIgnoreCase("ANY")) PlayerList.printvector(first);
+                            else {
+                                Vector<Player> second = finder.by_club(p,first);
+                                PlayerList.printvector(second);
+                            }
                             break;
                         }
                         case 3:
                         {
                             String s=t.nextLine();
                             Vector<Player> b = finder.by_position(s);
+                            PlayerList.printvector(b);
                             break;
                         }
                         case 4:
@@ -73,7 +79,9 @@ public class Menu {
                             int a=t.nextInt();
                             int b=t.nextInt();
                             t.nextLine();
+                            System.out.println(a + " " + b);
                             Vector<Player> c = finder.by_salaryrange(a, b);
+                            PlayerList.printvector(c);
                             break;
 
                         }
@@ -108,7 +116,9 @@ public class Menu {
                             String s = t.nextLine();
                             Club myteam = new Club(s);
                             myteam.formclub();    //a list of players created from this club
-                            long a = myteam.max_salary();
+                            Vector <Player> temp = myteam.max_salary();
+                            PlayerList.printvector(temp);
+                            //long a = myteam.max_salary();
                             break;
                         }
                         case 2:
@@ -117,7 +127,8 @@ public class Menu {
                             String s = t.nextLine();
                             Club myteam = new Club(s);
                             myteam.formclub();
-                            int b =myteam.max_age();
+                            Vector <Player> b =myteam.max_age();
+                            PlayerList.printvector(b);
                             break;
                         }
                         case 3:
@@ -126,7 +137,8 @@ public class Menu {
                             String s = t.nextLine();
                             Club myteam = new Club(s);
                             myteam.formclub();
-                            double c=myteam.max_height();
+                            Vector <Player> c=myteam.max_height();
+                            PlayerList.printvector(c);
                             break;
                         }
                         case 4:

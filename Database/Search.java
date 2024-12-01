@@ -13,9 +13,9 @@ public class Search {
     {
         for(int i=0;i<real.size();i++)
         {
-            if(real.get(i).name.equalsIgnoreCase(a)) 
+            if(real.get(i).getName().equalsIgnoreCase(a)) 
             {
-                real.get(i).printplayer();
+                //real.get(i).printplayer();
                 return real.get(i);
             }
 
@@ -29,27 +29,27 @@ public class Search {
         Vector <Player> v = new Vector<>();
         for(int i=0;i<real.size();i++)
         {
-            if(real.get(i).country.equalsIgnoreCase(a)) 
+            if(real.get(i).getCountry().equalsIgnoreCase(a)) 
             {
                 v.add(real.get(i));
             }
         }
-        PlayerList.printvector(v);
+        //PlayerList.printvector(v);
         return v;
     }
 
-    public Vector<Player> by_club(String a)
+    public Vector<Player> by_club(String a,Vector<Player> p)
     {
         Vector <Player> v = new Vector<>();
-        for(int i=0;i<real.size();i++)
+        for(int i=0;i<p.size();i++)
         {
-            if(real.get(i).club.equalsIgnoreCase(a)) 
+            if(p.get(i).getClub().equalsIgnoreCase(a)) 
             {
-                v.add(real.get(i));
+                v.add(p.get(i));
             }
            
         }
-        PlayerList.printvector(v);
+        //PlayerList.printvector(v);
         return v;
     }
     public Vector<Player> by_position(String a)
@@ -57,13 +57,13 @@ public class Search {
         Vector <Player> v = new Vector<>();
         for(int i=0;i<real.size();i++)
         {
-            if(real.get(i).position.equalsIgnoreCase(a)) 
+            if(real.get(i).getPosition().equalsIgnoreCase(a)) 
             {
 
                 v.add(real.get(i));
             }
         }
-        PlayerList.printvector(v);
+        //PlayerList.printvector(v);
         return v;
     }
     public Vector<Player> by_salaryrange(int a,int b)
@@ -71,12 +71,13 @@ public class Search {
         Vector <Player> v = new Vector<>();
         for(int i=0;i<real.size();i++)
         {
-            if(real.get(i).salary >=a && real.get(i).salary <=b) 
+            System.out.println("salary " + real.get(i).getSalary());
+            if(real.get(i).getSalary() >=a && real.get(i).getSalary() <=b) 
             {
                 v.add(real.get(i));
             }
         }
-        PlayerList.printvector(v);
+        //PlayerList.printvector(v);
         return v;
     }
 
@@ -85,7 +86,7 @@ public class Search {
         HashMap<String,Integer> M =new HashMap<>();
         for(int i=0;i<real.size();i++)
         {
-            String s = real.get(i).country;
+            String s = real.get(i).getCountry();
             if(M.containsKey(s)) M.put(s,(M.get(s)+1));
             else M.put(s,1);
         }

@@ -8,24 +8,26 @@ import Database.PlayerList;
 
 public class Club_search {
     Vector<Player> team = new Vector<>();
-    public long max_salary()
+    public Vector max_salary()
     {
         long max=-1;
         Vector<Player> v= new Vector<>();
         for(int i=0;i<team.size();i++)
         {
             
-            if(team.get(i).salary > max) 
+            if(team.get(i).getSalary() > max) 
             {
-                max = team.get(i).salary;
+                max = team.get(i).getSalary();
                 v.clear();
                 v.add(team.get(i));
             }
-            if(team.get(i).salary == max) v.add(team.get(i));
+            else if(team.get(i).getSalary() == max) v.add(team.get(i));
         }
-        PlayerList.printvector(v);
+        // PlayerList.printvector(v);
         //return v;
-        return max;
+        //return max;
+        return v;
+
         
     }
 
@@ -33,41 +35,50 @@ public class Club_search {
     {
         for(int i=0;i<team.size();i++)
         {
-            System.out.println(team.get(i).name + "\n");
+            System.out.println(team.get(i).getName() + "\n");
         }
     }
 
-    public int max_age()
+    public Vector max_age()
     {
         int max=-1;
-        int index=-1;
+        Vector<Player> v= new Vector<>();
         for(int i=0;i<team.size();i++)
         {
             
-            if(team.get(i).age > max) 
+            if(team.get(i).getAge() > max) 
             {
-                max = team.get(i).age;
-                index=i;
+                max = team.get(i).getAge();
+                //index=i;
+                v.clear();
+                v.add(team.get(i));
             }
+            else if(team.get(i).getAge() == max) v.add(team.get(i));
         }
-        team.get(index).printplayer();
-        return max;
+        //team.get(index).printplayer();
+        //return max;
+        return v;
     }
-    public double max_height()
+    public Vector max_height()
     {
         double max=-1;
-        int index=-1;
+        //int index=-1;
+        Vector <Player> v = new Vector<>();
         for(int i=0;i<team.size();i++)
         {
             
-            if(team.get(i).height > max) 
+            if(team.get(i).getHeight() > max) 
             {
-                max = team.get(i).height;
-                index=i;
+                max = team.get(i).getHeight();
+                v.clear();
+                v.add(team.get(i));
             }
+            else if(team.get(i).getHeight() == max) v.add(team.get(i));
+            
         }
-        team.get(index).printplayer();
-        return max;
+        //team.get(index).printplayer();
+        //return max;
+        return v;
     }
 
     public long total_yearly_salary()
@@ -75,7 +86,7 @@ public class Club_search {
         long s=0;
         for(int i=0;i<team.size();i++)
         {
-            s+=team.get(i).salary*52;
+            s+=team.get(i).getSalary()*52;
         }
         //return s;
         System.out.println("Total yearly salary is " + s);

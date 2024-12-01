@@ -40,47 +40,73 @@ public class PlayerList
                         {
                             case 0:
                                 {
-                                    temp.name = s.substring(j, i);
+                                    String r = s.substring(j, i);
+                                    temp.setName(r); 
                                     break;
                                 }
                             case 1:
                                 {
-                                    temp.country = s.substring(j, i);
+                                    String r = s.substring(j, i);
+                                    temp.setCountry(r); ;
                                     break;
                                 }
                             case 2:
                                 {
-                                    temp.age = Integer.parseInt(s.substring(j, i));
+                                    int r = Integer.parseInt(s.substring(j, i));
+                                    temp.setAge(r); 
                                     break;
                                 }
                             case 3:
                                 {
-                                    temp.height = Double.parseDouble(s.substring(j,i));
+                                    double r =Double.parseDouble(s.substring(j,i));
+                                    temp.setHeight(r); 
                                     break;
 
                                 }
                             case 4:
                                 {
-                                    temp.club = s.substring(j,i);
+                                    String r = s.substring(j,i);
+                                    temp.setClub(r); 
                                     break;
                                 }
                             case 5:
                                 {
-                                    temp.position = s.substring(j,i);
+                                    String r =s.substring(j,i);
+                                    temp.setPosition(r);
                                     break;
                                 }
                             case 6:
                                 {
-                                    if((s.charAt(j)==',')) temp.jersey_no=0;
-                                    else
-                                    temp.jersey_no = Integer.parseInt(s.substring(j,i));
-                                    break;
+                                    // int r =Integer.parseInt(s.substring(j,i));
+                                    // if((s.charAt(j)==',')) temp.setJersey_no(0);
+                                    // else
+                                    // temp.setJersey_no(r); 
+                                    // break;
+
+
+                                    try{
+                                        int r = Integer.parseInt(s.substring(j, i));
+                                        temp.setJersey_no(r) ;
+                                        break;
+                                    }catch (NumberFormatException e){
+                                        //System.out.println("error in " + temp.getName());
+                                        temp.setJersey_no(0);
+                                    }
                                 }
 
                             default:
                                 {
-                                    temp.salary = Integer.parseInt(s.substring(j, i));
-                                    break;
+                                    // int r = Integer.parseInt(s.substring(j, i));
+                                    // temp.setSalary(r); 
+                                    // break;
+
+                                    try{
+                                        int r = Integer.parseInt(s.substring(j, i+1));
+                                        temp.setSalary(r); 
+                                        break;
+                                    }catch (NumberFormatException e){
+                                        //System.out.println("error in " + temp.getName());
+                                    }
                                 }
                         }
                         j=i+1;
@@ -139,7 +165,7 @@ public class PlayerList
         System.out.println("Enter jersey number");
         String g = t.nextLine();
         int g_no=0;
-        if(g != null ) g_no = Integer.parseInt(g);
+        if(g != "" ) g_no = Integer.parseInt(g);
         System.out.println("Enter salary");
         long h = t.nextInt();
         t.nextLine();
@@ -163,7 +189,7 @@ public class PlayerList
     {
         for(int i=0;i<playerList.size();i++)
         {
-            if(playerList.get(i).name.equalsIgnoreCase(a)) return false;
+            if(playerList.get(i).getName().equalsIgnoreCase(a)) return false;
         }
         return true;
     }

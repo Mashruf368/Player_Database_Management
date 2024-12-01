@@ -27,7 +27,7 @@ public class Club extends Club_search{
         all_players = PlayerList.getlist();
         for(int i=0;i<all_players.size();i++)
         {
-            if(all_players.get(i).club.equals(team_name)) team.add(all_players.get(i));
+            if(all_players.get(i).getClub().equalsIgnoreCase(team_name)) team.add(all_players.get(i));
         }
         if(team.size()>0) return team;
         else 
