@@ -2,6 +2,7 @@ package Interface;
 //package Players;
 
 import java.util.HashMap;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.Vector;
 
@@ -19,6 +20,7 @@ public class Menu {
         while(loop){
             switch(window)
             {
+                
                 case 0:
                 {
                     System.out.println("Main Menu");
@@ -26,10 +28,23 @@ public class Menu {
                     System.out.println("2. Search Clubs");
                     System.out.println("3. Add Player");
                     System.out.println("4. Exit System");
-                    int m = t.nextInt();
+                    try{int m = t.nextInt();
                     t.nextLine();
                     window = m;
-                    break;
+                    if(m<0 || m>4) {
+                        System.out.println("Enter a number from 1 to 4\n");
+                        window = 0;
+                    }
+                    else window = m;
+                    //else break;
+                    
+                    break;}
+                    catch(InputMismatchException ex)
+                    {
+                        System.out.println("Enter a number from 1 to 4\n");
+                        t.nextLine();
+                        break;
+                    }
                 }
                 case 1:
                 {
@@ -41,8 +56,25 @@ public class Menu {
                     System.out.println("4. By salary range");
                     System.out.println("5. Country wise player count");
                     System.out.println("6. Back to Main Menu");
-                    int m =t.nextInt();
-                    t.nextLine();
+                    
+                    int m;
+                    try{
+                        m =t.nextInt();
+                        t.nextLine();
+                        if(m<0 || m>6) 
+                        {
+                            System.out.println("Enter a number from 1 to 6\n");
+                            window = 1;
+                        }
+                        
+                    }
+                    catch(InputMismatchException ex)
+                    {
+                        System.out.println("Enter a number from 1 to 4\n");
+                        t.nextLine();
+                        break;
+                    }
+
                     switch(m)
                     {
                         case 1:
@@ -105,8 +137,21 @@ public class Menu {
                     System.out.println("(3) Player(s) with the maximum height of a club");
                     System.out.println("(4) Total yearly salary of a club");
                     System.out.println("(5) Back to Main Menu");
-                    int m =t.nextInt();
+                    int m=-1;
+                    try{m =t.nextInt();
                     t.nextLine();
+                    if(m<0 || m> 5) 
+                    {
+                        System.out.println("Enter a number from 1 to 5\n");
+                        window =2;
+                    }
+                    }
+                    catch(InputMismatchException ex)
+                    {
+                        System.out.println("Enter a number from 1 to 5\n");
+                        t.nextLine();
+                        break;
+                    }
                     switch(m) 
                     {
                         

@@ -2,9 +2,6 @@ package Interface;
 //package Players;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -15,15 +12,13 @@ import java.util.Set;
 
 import Database.Player;
 import Database.PlayerList;
-
-import java.io.File;
 public class Save_players {
     
     
 
 
     static void save(){
-        System.out.println("in save function\n");
+        //System.out.println("in save function\n");
         List<Player> real = PlayerList.getlist();
 
         //for(int i=0;i<real.size();i++) real.get(i).printplayer();

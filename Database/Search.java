@@ -92,8 +92,9 @@ public class Search {
         }
         for(String country : M.keySet())
         {
-            System.out.println("Players from " +country + "-" + M.get(country));
+            System.out.println("Players from " +country + "  : " + M.get(country));
         }
+        System.out.println("\n");
         return M;
     }
 

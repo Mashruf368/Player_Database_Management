@@ -4,7 +4,6 @@ package Clubs;
 import java.util.Vector;
 
 import Database.Player;
-import Database.PlayerList;
 
 public class Club_search {
     Vector<Player> team = new Vector<>();
