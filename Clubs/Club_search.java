@@ -7,7 +7,7 @@ import Database.Player;
 
 public class Club_search {
     Vector<Player> team = new Vector<>();
-    public Vector max_salary()
+    public Vector<Player> max_salary()
     {
         long max=-1;
         Vector<Player> v= new Vector<>();
@@ -38,7 +38,7 @@ public class Club_search {
         }
     }
 
-    public Vector max_age()
+    public Vector<Player> max_age()
     {
         int max=-1;
         Vector<Player> v= new Vector<>();
@@ -58,7 +58,7 @@ public class Club_search {
         //return max;
         return v;
     }
-    public Vector max_height()
+    public Vector<Player> max_height()
     {
         double max=-1;
         //int index=-1;
